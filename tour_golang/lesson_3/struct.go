@@ -9,6 +9,6 @@ type Vertex struct {
 
 func main() {
 	v:= Vertex{1,2}
-	fmt.Print()
-
+	fmt.Print(v.X)
+	
 }
