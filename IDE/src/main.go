@@ -1,26 +1,21 @@
 package main
 
-import (
-	"fmt"
-	"sort"
-)
+import "fmt"
 
-func miniMaxSum( arr []int) {
-	sort.Ints(arr)
-	fmt.Println(arr)
-	mini := 0
-	max := 0
-	for i:=0; i<len(arr)-1; i++ {
-		mini += arr[i]
-	}
-	for i:=1; i<len(arr); i++ {
-		max += arr[i]
-	}
-	fmt.Println(mini," ",max)
+type Vertex struct {
+	Lat,Long float64
 }
 
 func main(){
-	arrx := []int{1, 3,2, 4, 5}
-	miniMaxSum(arrx)
+	var m map[string]int8
+	m = make(map[string]int8)
+	m["Uday"] = 19
+	fmt.Println("Uday : ",m["Uday"])
+	var x map[string]Vertex
+	x = make(map[string]Vertex)
+	x["Delhi"] = Vertex{
+		3.22,4.21,
+	}
+	fmt.Println(x["Delhi"])
 
 }
