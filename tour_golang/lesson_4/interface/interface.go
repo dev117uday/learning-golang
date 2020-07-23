@@ -17,7 +17,7 @@ func main() {
 
 	a = f// a MyFloat implements Abser
 	fmt.Println("a: ",a.Abs())
-	fmt.Println("v: ",v)
+	fmt.Println("v: ",v.Abs())
 	fmt.Println("f: ",f)
 
 	a = &v // a *Vertex implements Abser
