@@ -11,6 +11,20 @@ type List struct {
 	guide *LinkedList
 }
 
+func main(){
+	var numberList = List {nil,nil}
+	numberList.insert(0)
+	numberList.insert(1)
+	numberList.insert(2)
+	numberList.insert(3)
+	numberList.insert(4)
+	numberList.insertAfter(2,10)
+	numberList.insertAfter(4,6)
+	numberList.attach(-1)
+	numberList.attach(-2)
+	numberList.display()
+}
+
 func (L *List) insert (number int) {
 	var ptr = LinkedList{}
 	ptr.number = number
@@ -32,12 +46,27 @@ func (L *List) display() {
 	}
 }
 
-func main(){
-	var numberList = List {nil,nil}
-	numberList.insert(0)
-	numberList.insert(1)
-	numberList.insert(2)
-	numberList.insert(3)
-	numberList.insert(4)
-	numberList.display()
+func (L *List) insertAfter(number int, toSet int){
+	var ptr *LinkedList = L.head
+	for ptr != nil {
+		if ptr.number == number {
+			if ptr.next != nil {
+				var temp = LinkedList{}
+				temp.number = toSet
+				temp.next = ptr.next
+				ptr.next = &temp
+				return
+			} else {
+				L.insert(toSet)
+			}
+		}
+		ptr = ptr.next
+	}
+}
+
+func (L *List) attach (number int) {
+	var ptr = LinkedList{}
+	ptr.number = number
+	ptr.next = L.head
+	L.head = &ptr
 }

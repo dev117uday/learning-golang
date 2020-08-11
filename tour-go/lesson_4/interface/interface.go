@@ -5,42 +5,44 @@ import (
 	"math"
 )
 
-type Abser interface {
-	Abs() float64
+type geometry interface {
+	area() float64
+	perimeter() float64
+}
+type rectangle struct {
+	height,width float64
+}
+
+type circle struct {
+	radius float64
+}
+
+func (r rectangle) area() float64 {
+	return r.height*r.width
+}
+
+func (c circle) area() float64 {
+	return math.Pi*c.radius*c.radius
+}
+
+func (r rectangle) perimeter()  float64  {
+	return 2*r.height + 2*r.width
+}
+
+func (c circle) perimeter() float64 {
+	return math.Pi*2*c.radius
+}
+
+func measure(g geometry) {
+	fmt.Println(g)
+	fmt.Println(g.area())
+	fmt.Println(g.perimeter())
 }
 
 func main() {
-	var a Abser
-	//fmt.Println(a)
-	f := MyFloat(-math.Sqrt2)
-	v := Vertex{3, 4}
+	r := rectangle{3,4}
+	c := circle{4}
 
-	a = f// a MyFloat implements Abser
-	fmt.Println("a: ",a.Abs())
-	fmt.Println("v: ",v.Abs())
-	fmt.Println("f: ",f)
-
-	a = &v // a *Vertex implements Abser
-	fmt.Println(a.Abs())
-	fmt.Println(v)
-	fmt.Println(f)
-	fmt.Println(a)
-
-}
-
-type MyFloat float64
-
-func (f MyFloat) Abs() float64 {
-	if f < 0 {
-		return float64(-f)
-	}
-	return float64(f)
-}
-
-type Vertex struct {
-	X, Y float64
-}
-
-func (v *Vertex) Abs() float64 {
-	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+	measure(r)
+	measure(c)
 }
