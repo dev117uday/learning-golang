@@ -21,7 +21,6 @@ func (L *List) insert (number int) {
 
 func (L *List) display(){
 	var ptr *LinkedList = L.head
-
 	for ptr != nil {
 		fmt.Println(ptr.number)
 		ptr = ptr.next

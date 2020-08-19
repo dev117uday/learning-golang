@@ -8,50 +8,53 @@ type DoubleLinkedList struct {
 	prev *DoubleLinkedList
 }
 
-var head *DoubleLinkedList = nil
-var guide * DoubleLinkedList = nil
+type ImplDoubleLL struct {
+	head *DoubleLinkedList
+	guide * DoubleLinkedList
+}
 
-func insert(number int) {
+func (idl *ImplDoubleLL) insert(number int) {
 	var ptr = DoubleLinkedList{}
 	ptr.number = number
 	ptr.next = nil
-	if head == nil {
-		head = &ptr
-		guide = &ptr
+	if idl.head == nil {
+		idl.head = &ptr
+		idl.guide = &ptr
 		ptr.prev = nil
 	} else {
-		guide.next = &ptr
-		ptr.prev = guide
-		guide = &ptr
+		idl.guide.next = &ptr
+		ptr.prev = idl.guide
+		idl.guide = &ptr
 	}
 }
 
-func display(){
+func (idl *ImplDoubleLL) display(){
 
-	var ptr *DoubleLinkedList = head
-	 for ptr != nil {
-	 	fmt.Println(ptr.number)
-	 	ptr = ptr.next
-	 }
+	var ptr *DoubleLinkedList = idl.head
+	for ptr != nil {
+		fmt.Println(ptr.number)
+		ptr = ptr.next
+	}
 
 }
 
-func display_reverse() {
+func (idl *ImplDoubleLL) display_reverse() {
 
-		var ptr *DoubleLinkedList = guide
-		for ptr!=nil{
-			fmt.Println(ptr.number)
-			ptr = ptr.prev
-		}
+	var ptr *DoubleLinkedList = idl.guide
+	for ptr!=nil{
+		fmt.Println(ptr.number)
+		ptr = ptr.prev
+	}
 
 }
 
 func main() {
-	insert(0)
-	insert(1)
-	insert(2)
-	insert(3)
-	display()
+	var dll = ImplDoubleLL{nil,nil}
+	dll.insert(0)
+	dll.insert(1)
+	dll.insert(2)
+	dll.insert(3)
+	dll.display()
 	fmt.Println("")
-	display_reverse()
+	dll.display_reverse()
 }
