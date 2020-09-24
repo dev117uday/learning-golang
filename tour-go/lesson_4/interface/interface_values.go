@@ -9,7 +9,7 @@ type I interface {
 	M()
 }
 
-type T struct {
+type T structs {
 	S string
 }
 
