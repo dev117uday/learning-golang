@@ -1,14 +1,19 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 )
 
+var reader *bufio.Reader = bufio.NewReader(os.Stdin)
+
+func scanf(f string, a ...interface{}) { fmt.Fscanf(reader, f, a...) }
+
 func main() {
-	var number int
+	var number, i int = 0, 1
 	_, _ = fmt.Scanln(&number)
-	var oned = make([]int, number)
+	var oned = make([]int, number, number+3)
 
 	if number == 1 {
 		_, _ = fmt.Scanln(&oned[0])
@@ -17,15 +22,13 @@ func main() {
 	}
 	count := 1
 	_, _ = fmt.Scanln(&oned[0])
-	for i:=1; i<number;i++ {
-		_, _ = fmt.Scanln(&oned[i])
+	for i = 1; i < number; i++ {
+		scanf("%d\n", &oned[i])
 		if oned[i] != oned[i-1] {
 			count++
 		}
 	}
-	
 
 	fmt.Println(count)
-
 
 }

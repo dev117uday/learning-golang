@@ -4,28 +4,29 @@ import "fmt"
 
 type LinkedList struct {
 	number int
-	next *LinkedList
+	next   *LinkedList
 }
 type List struct {
-	head *LinkedList
+	head  *LinkedList
 	guide *LinkedList
 }
 
-func main(){
-	var numberList = List {nil,nil}
+func main() {
+	var numberList = List{nil, nil}
 	numberList.insert(0)
 	numberList.insert(1)
 	numberList.insert(2)
 	numberList.insert(3)
 	numberList.insert(4)
-	numberList.insertAfter(2,10)
-	numberList.insertAfter(4,6)
+	numberList.insertAfter(2, 10)
+	numberList.insertAfter(4, 6)
 	numberList.attach(-1)
 	numberList.attach(-2)
+	numberList.insertBefore(6, 7)
 	numberList.display()
 }
 
-func (L *List) insert (number int) {
+func (L *List) insert(number int) {
 	var ptr = LinkedList{}
 	ptr.number = number
 	ptr.next = nil
@@ -46,7 +47,7 @@ func (L *List) display() {
 	}
 }
 
-func (L *List) insertAfter(number int, toSet int){
+func (L *List) insertAfter(number int, toSet int) {
 	var ptr *LinkedList = L.head
 	for ptr != nil {
 		if ptr.number == number {
@@ -64,7 +65,24 @@ func (L *List) insertAfter(number int, toSet int){
 	}
 }
 
-func (L *List) attach (number int) {
+func (L *List) insertBefore(number int, toSet int) {
+	var ptr *LinkedList = L.head
+	for ptr != nil {
+		if ptr.next == nil {
+			fmt.Println("Not Found")
+			break
+		} else if ptr.next.number == number {
+			var newNode = LinkedList{}
+			newNode.number = toSet
+			newNode.next = ptr.next
+			ptr.next = &newNode
+			break
+		}
+		ptr = ptr.next
+	}
+}
+
+func (L *List) attach(number int) {
 	var ptr = LinkedList{}
 	ptr.number = number
 	ptr.next = L.head
