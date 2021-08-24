@@ -27,7 +27,7 @@ func cookFood(name string) <-chan CookInfo {
 	return cookChannel
 }
 
-func fanIn(mychannel1, mychannel2 <-chan CookInfo) <-chan CookInfo {
+func fanIn2(mychannel1, mychannel2 <-chan CookInfo) <-chan CookInfo {
 	mychannel := make(chan CookInfo)
 
 	go func() {
@@ -46,7 +46,7 @@ func fanIn(mychannel1, mychannel2 <-chan CookInfo) <-chan CookInfo {
 }
 
 func main() {
-	gameChannel := fanIn(cookFood("Player 1 : "), cookFood("Player 2 :"))
+	gameChannel := fanIn2(cookFood("Player 1 : "), cookFood("Player 2 :"))
 
 	for round := 0; round < 3; round++ {
 		food1 := <-gameChannel

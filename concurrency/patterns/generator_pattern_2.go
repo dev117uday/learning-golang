@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func updatePosition(name string) <-chan string {
+func updatePosition2(name string) <-chan string {
 	positionChannel := make(chan string)
 
 	go func() {
@@ -15,8 +15,8 @@ func updatePosition(name string) <-chan string {
 }
 
 func main() {
-	positionChannel1 := updatePosition("Legolas :")
-	positionChannel2 := updatePosition("Gandalf :")
+	positionChannel1 := updatePosition2("Legolas :")
+	positionChannel2 := updatePosition2("Gandalf :")
 
 	for i := 0; i < 5; i++ {
 		fmt.Println(<-positionChannel1)

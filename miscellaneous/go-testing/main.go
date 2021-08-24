@@ -16,6 +16,9 @@ func main() {
 
 func helloWorldEndPoint(writer http.ResponseWriter, request *http.Request) {
 
-	fmt.Fprintf(writer, "hello world")
+	_, err := fmt.Fprintf(writer, "hello world")
+	if err != nil {
+		return 
+	}
 
 }
