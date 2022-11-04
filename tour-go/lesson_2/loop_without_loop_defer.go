@@ -1,4 +1,4 @@
-package main
+package lesson_2
 
 import "fmt"
 
@@ -11,6 +11,6 @@ func printNo(number int) {
 	return
 }
 
-func main() {
+func loop_wo_loop() {
 	printNo(10)
 }

@@ -1,8 +1,8 @@
-package main
+package lesson_2
 
 import "fmt"
 
-func main() {
+func stack_defer() {
 	fmt.Println("counting")
 
 	for i := 0; i < 10; i++ {
