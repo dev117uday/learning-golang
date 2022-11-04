@@ -1,8 +1,8 @@
-package main
+package lesson_1
 
 import "fmt"
 
-func main() {
+func int_datatype() {
 	var i int
 	var f float64
 	var b bool

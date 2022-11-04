@@ -1,11 +1,11 @@
-package main
+package lesson_1
 
 import "fmt"
 
 // const pi
 const pi = 3.14
 
-func main() {
+func hello_world() {
 	const World = "世界"
 	fmt.Println("Hello", World)
 	fmt.Println("Happy", pi, "Day")

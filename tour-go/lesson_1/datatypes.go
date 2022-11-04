@@ -1,11 +1,11 @@
-package main
+package lesson_1
 
 import (
 	"fmt"
 	"math/cmplx"
 )
 
-func main() {
+func datatypes() {
 
 	var ToBe bool = false
 	var MaxInt uint64 = 1<<64 - 1

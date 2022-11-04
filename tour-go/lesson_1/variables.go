@@ -1,11 +1,11 @@
-package main
+package lesson_1
 
 import "fmt"
 
 var c, python, java bool
 var i, j int = 1, 2
 
-func main() {
+func variables() {
 	var i int
 	fmt.Println(i, c, python, java)
 
