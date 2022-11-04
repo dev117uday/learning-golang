@@ -1,8 +1,8 @@
-package main
+package lesson_2
 
 import "fmt"
 
-func printNo(number int) {
+func printNo2(number int) {
 
 	if number == 1 {
 		fmt.Print(number)
@@ -13,10 +13,10 @@ func printNo(number int) {
 	return
 }
 
-func main() {
+func recusion() {
 
 	var number int
 	fmt.Scanln(&number)
-	printNo(number)
+	printNo2(number)
 
 }

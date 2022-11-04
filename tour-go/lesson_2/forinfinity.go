@@ -1,6 +1,6 @@
-package main
+package lesson_2
 
-func main() {
+func for_infinity() {
 	for {
 	}
 }
