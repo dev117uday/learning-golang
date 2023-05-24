@@ -31,6 +31,17 @@ func main() {
 	var z uint = uint(f2)
 	fmt.Println(x, y, z)
 
+	var i1 interface{} = "hello"
+
+	s, ok := i1.(string)
+	fmt.Println(s, ok)
+
+	f2, ok2 := i1.(float64)
+	fmt.Println(f2, ok2)
+
+	// f = i.(float64) // panic
+	// fmt.Println(f)
+
 	// %v	the value in a default format
 	// when printing structs, the plus flag (%+v) adds field names
 	// %#v	a Go-syntax representation of the value
