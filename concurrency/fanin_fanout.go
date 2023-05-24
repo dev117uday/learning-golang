@@ -37,7 +37,7 @@ func fanIn(mychannel1, mychannel2 <-chan string) <-chan string {
 	return mychannel
 }
 
-func main() {
+func fanINfanOUT() {
 	positionsChannel := fanIn(updatePosition("Legolas :"), updatePosition("Gandalf :"))
 
 	for i := 0; i < 10; i++ {

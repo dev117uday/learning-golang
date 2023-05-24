@@ -45,7 +45,7 @@ func fanIn2(mychannel1, mychannel2 <-chan CookInfo) <-chan CookInfo {
 	return mychannel
 }
 
-func main() {
+func sequencePattern() {
 	gameChannel := fanIn2(cookFood("Player 1 : "), cookFood("Player 2 :"))
 
 	for round := 0; round < 3; round++ {
