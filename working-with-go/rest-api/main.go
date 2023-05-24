@@ -16,7 +16,7 @@ type Article struct {
 	Content string `json:"content"`
 }
 
-//Articles : a list to store struct Article
+// Articles : a list to store struct Article
 type Articles []Article
 
 func main() {
