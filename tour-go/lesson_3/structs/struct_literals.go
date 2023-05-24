@@ -14,5 +14,9 @@ var (
 )
 
 func main() {
-	fmt.Println(v1,"\n", p,"\n", v2,"\n", v3)
+
+	v := Vertex{1, 2}
+	fmt.Print(v.X)
+
+	fmt.Println(v1, "\n", p, "\n", v2, "\n", v3)
 }
