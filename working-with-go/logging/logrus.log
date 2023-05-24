@@ -1,3 +1,0 @@
-time="2021-05-30T12:34:37+05:30" level=info msg="A group of walrus emerges from the ocean" animal=walrus size=10
-time="2021-05-30T12:52:25+05:30" level=info msg="A group of walrus emerges from the ocean" animal=walrus size=10
-time="2021-05-30T12:52:25+05:30" level=fatal msg="Failed to send event" event=event key=key topic=topic
